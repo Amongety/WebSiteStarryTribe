@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmodules.a CMakeFiles/modules.dir/toc.cpp.o CMakeFiles/modules.dir/auw.cpp.o CMakeFiles/modules.dir/obw.cpp.o CMakeFiles/modules.dir/cw.cpp.o CMakeFiles/modules.dir/ciw.cpp.o
+/usr/bin/ranlib libmodules.a
