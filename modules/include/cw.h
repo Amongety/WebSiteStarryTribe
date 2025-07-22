@@ -1,6 +1,8 @@
 #ifndef __CW_H__
 #define __CW_H__ 1
 
+#include <vector>
+#include <string>
 #include <Wt/WApplication.h>
 #include <Wt/WContainerWidget.h>
 #include <Wt/WPushButton.h>
@@ -11,12 +13,12 @@ public:
     CatsWidget();
     virtual ~CatsWidget();
 private:
+    void addCatsBlock(const std::string &name, const std::vector<std::string> imagePath);
     Wt::WContainerWidget *background;
     Wt::WText *title_text;
-    Wt::WContainerWidget *cat1;
-    Wt::WContainerWidget *cat2;
-    Wt::WContainerWidget *cat3;
-    Wt::WContainerWidget *cat4;
+    Wt::WContainerWidget *catsContainer;
+    std::vector<std::vector<std::string>> image;
+    std::vector<std::string> text_image;
 };
 
 #endif

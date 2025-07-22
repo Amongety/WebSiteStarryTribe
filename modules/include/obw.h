@@ -11,9 +11,19 @@ public:
     BreedersWidget();
     virtual ~BreedersWidget();
 private:
+    void addBreedersBlock(const std::string &name, const std::vector<std::string> imagePath);
     Wt::WContainerWidget *background;
     Wt::WText *title_text;
-    Wt::WContainerWidget *breeder;
+    Wt::WContainerWidget *breederContainer;
+    // Wt::WContainerWidget *imageContainer;
+    // Wt::WText *borderText;
+    // Wt::WImage *mainImage;
+    std::vector<std::vector<std::string>> images;
+    std::vector<std::string> text_image;
+    // int currentIndex;
+    // Wt::WContainerWidget *arrowsContainer;
+    // Wt::WPushButton *leftArrow;
+    // Wt::WPushButton *rightArrow;
 };
 
 #endif
