@@ -11,8 +11,12 @@ public:
     ContactWidget();
     virtual ~ContactWidget();
 private:
+    void addInfoBlock(std::pair<std::string, std::string> bundle, std::string name);
     Wt::WContainerWidget *background;
     Wt::WText *title_text;
+    Wt::WContainerWidget* photosContainer;
+    std::vector<std::pair<std::string, std::string>> photos;
+    std::vector<std::string> photo_text;
 };
 
 #endif

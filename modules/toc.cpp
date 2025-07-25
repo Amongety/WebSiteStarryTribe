@@ -7,7 +7,7 @@ FirstWidget::FirstWidget() {
     top_title = addNew<Wt::WContainerWidget>();
     top_title->addStyleClass("top_title");
 
-    logo = top_title->addNew<Wt::WImage>("/picture/inscriptionST.png");
+    logo = top_title->addNew<Wt::WImage>("/picture/special/inscriptionST.png");
     logo->addStyleClass("logo");
 
     menuToggle = addNew<Wt::WPushButton>("⋯");

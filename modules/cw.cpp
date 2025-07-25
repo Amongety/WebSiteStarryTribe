@@ -8,8 +8,9 @@ CatsWidget::CatsWidget() {
     title_text->addStyleClass("all-title-text");
 
     catsContainer = addNew<Wt::WContainerWidget>();
-    catsContainer->addStyleClass("cats-container");
+    catsContainer->addStyleClass("blocks-container");
 
+    /* Добавлять/удалять фото */
     image = {{"/picture/cats/cat1/cat1.jpeg", "/picture/cats/cat1/cat2.jpeg", "/picture/cats/cat1/cat3.jpeg"}, \
     {"/picture/cats/cat2/cat1.jpeg", "/picture/cats/cat2/cat2.jpeg", "/picture/cats/cat2/cat3.jpeg"}, \
     {"/picture/cats/cat3/cat1.jpeg", "/picture/cats/cat3/cat2.jpeg", "/picture/cats/cat3/cat3.jpeg"}, \
@@ -24,7 +25,7 @@ CatsWidget::CatsWidget() {
 
 void CatsWidget::addCatsBlock(const std::string &name, const std::vector<std::string> imagePath) {
     Wt::WContainerWidget* catBlock = catsContainer->addNew<Wt::WContainerWidget>();
-    catBlock->addStyleClass("breeder-block");
+    catBlock->addStyleClass("single-block");
     
     Wt::WContainerWidget* textContainer = catBlock->addNew<Wt::WContainerWidget>();
     textContainer->addStyleClass("image-text-above");
@@ -47,7 +48,7 @@ void CatsWidget::addCatsBlock(const std::string &name, const std::vector<std::st
     Wt::WPushButton* rightArrow = arrowsContainer->addNew<Wt::WPushButton>("→");
     rightArrow->addStyleClass("arrow-button");
 
-    std::shared_ptr<int> currentIndex = std::make_shared<int>(0);
+    std::shared_ptr<long long int> currentIndex = std::make_shared<long long int>(0);
 
     auto updateImage = [mainImage, imagePath, currentIndex]() {
         mainImage->setImageLink(Wt::WLink(imagePath[*currentIndex]));

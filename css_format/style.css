@@ -11,7 +11,7 @@ html, body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/picture/background.jpg');
+    background-image: url('/picture/special/background.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -178,7 +178,7 @@ html, body {
   transform: scale(1.2);
 }
 
-.cats-container {
+.blocks-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -188,7 +188,7 @@ html, body {
   box-sizing: border-box;
 }
 
-.breeder-block {
+.single-block {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,8 +196,43 @@ html, body {
   max-width: 800px;
 }
 
-.breeder-block + .breeder-block {
+.single-block + .single-block {
   margin-top: 400px;
+}
+
+.social-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.social-photo {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  background: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.social-photo-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.social-photo-text {
+  font-size: 65px;
+  margin-bottom: 5px;
+  text-align: center;
+  color: #000000;
+  margin-top: 250px;
+}
+
+.social-photo:active {
+  transform: scale(1.05);
 }
 
 @media (max-width: 1280px) {
@@ -282,9 +317,6 @@ html, body {
     padding: 0 10px;
     box-sizing: border-box;
   }
-  .image-border-text {
-    font-size: clamp(25px, 5vw, 40px);
-  }
   .image-text-above {
     margin-bottom: -120px;
   }
@@ -295,7 +327,7 @@ html, body {
   .arrows-container {
     margin: -180px auto;
   }
-  .breeder-block + .breeder-block {
+  .single-block + .single-block {
     margin-top: 600px;
   }
   .arrow-button {
@@ -315,7 +347,7 @@ html, body {
     border-width: 8px;
   }
 
-  .cats-container {
+  .blocks-container {
     padding: 20px 10px;
     gap: 40px;
   }
