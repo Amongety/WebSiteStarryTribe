@@ -10,6 +10,18 @@ git clone https://github.com/Amongety/WebSiteStarryTribe.git
 ```
 3. Install the Boost library
 
+3.1. Download the *.tar.gz archive
+```
+https://www.boost.org/releases/latest/
+```
+3.2. Unzip
+```Bash
+tar -xzf boost_x_xx_x.tar.gz
+```
+3.3. Go to the desired folder
+```Bash
+cd boost_x_xx_x/
+```
 4. Install the Wt library
 ```Bash
 git clone https://github.com/emweb/wt.git
