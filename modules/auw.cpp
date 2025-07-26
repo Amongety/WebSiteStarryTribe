@@ -63,7 +63,44 @@ AboutWidget::AboutWidget() {
         contact_info->addStyleClass("b-button");
     });
 
+    linkContainer1 = addNew<Wt::WContainerWidget>();
+    linkContainer1->addStyleClass("devon-block");
+
+    textDRX1 = linkContainer1->addNew<Wt::WContainerWidget>();
+    textDRX1->addStyleClass("devon-text");
     
+    textDRX1->addNew<Wt::WText>("<h2>Заголовок1</h2>")->addStyleClass("devon-header");
+    
+    textDRX1->addNew<Wt::WText>("Какой-то текст1")->addStyleClass("devon-desc");
+    
+    imageDRX1 = linkContainer1->addNew<Wt::WImage>("/picture/cattery/cattery4.jpeg");
+    imageDRX1->addStyleClass("devon-image");
+
+    linkContainer2 = addNew<Wt::WContainerWidget>();
+    linkContainer2->addStyleClass("devon-block");
+
+    textDRX2 = linkContainer2->addNew<Wt::WContainerWidget>();
+    textDRX2->addStyleClass("devon-text");
+    
+    textDRX2->addNew<Wt::WText>("<h2>Заголовок2</h2>")->addStyleClass("devon-header");
+    
+    textDRX2->addNew<Wt::WText>("Какой-то текст2")->addStyleClass("devon-desc");
+    
+    imageDRX2 = linkContainer2->addNew<Wt::WImage>("/picture/cattery/cattery5.jpeg");
+    imageDRX2->addStyleClass("devon-image");
+
+    linkContainer3 = addNew<Wt::WContainerWidget>();
+    linkContainer3->addStyleClass("devon-block");
+
+    textDRX3 = linkContainer3->addNew<Wt::WContainerWidget>();
+    textDRX3->addStyleClass("devon-text");
+    
+    textDRX3->addNew<Wt::WText>("<h2>Заголовок3</h2>")->addStyleClass("devon-header");
+    
+    textDRX3->addNew<Wt::WText>("Какой-то текст3")->addStyleClass("devon-desc");
+    
+    imageDRX3 = linkContainer3->addNew<Wt::WImage>("/picture/cattery/cattery6.jpeg");
+    imageDRX3->addStyleClass("devon-image");
 
     logo->clicked().connect([=] {
         Wt::WApplication::instance()->setInternalPath("/", true);
