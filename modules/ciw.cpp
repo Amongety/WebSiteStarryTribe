@@ -126,7 +126,7 @@ ContactWidget::ContactWidget() {
             menuToggle.style.visibility = 'hidden';
 
         } else {
-            if(scrollTop >= 0 && scrollTop < 100){
+            if(scrollTop >= 0 && scrollTop < 200){
             topTitle.style.visibility = 'visible';
             topTitle.style.opacity = '1';
 
