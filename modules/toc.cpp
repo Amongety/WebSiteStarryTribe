@@ -108,6 +108,10 @@ FirstWidget::FirstWidget() {
     imageDRX3 = linkContainer3->addNew<Wt::WImage>("/picture/cattery/cattery3.jpeg");
     imageDRX3->addStyleClass("devon-image");
 
+    logo->clicked().connect([=] {
+        Wt::WApplication::instance()->setInternalPath("/", true);
+    });
+
     bAboutUs->clicked().connect([this] {
         Wt::WApplication::instance()->setInternalPath("/about_us", true);
     });
@@ -124,7 +128,6 @@ FirstWidget::FirstWidget() {
         Wt::WApplication::instance()->setInternalPath("/contact_info", true);
     });
 
-    
     this->doJavaScript(R"(
         const topTitle = document.querySelector('.top_title');
         const logo = document.querySelector('.logo');
@@ -175,10 +178,9 @@ FirstWidget::FirstWidget() {
             menuToggle.style.opacity = '0';
             menuToggle.style.visibility = 'hidden';
         }
-}
+    }
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; }); )");
 
-        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-    });)");
 }
 
 FirstWidget::~FirstWidget() {}

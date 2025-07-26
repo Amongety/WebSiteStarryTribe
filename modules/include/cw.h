@@ -16,6 +16,14 @@ private:
     void addCatsBlock(const std::string &name, const std::vector<std::string> imagePath);
     Wt::WContainerWidget *background;
     Wt::WText *title_text;
+    Wt::WContainerWidget *top_title;
+    Wt::WImage *logo;
+    Wt::WPushButton *menuToggle;
+    Wt::WContainerWidget *bContainers;
+    Wt::WPushButton *bAboutUs;
+    Wt::WPushButton *bOurBreeders;
+    Wt::WPushButton *bCats;
+    Wt::WPushButton *contact_info;
     Wt::WContainerWidget *catsContainer;
     std::vector<std::vector<std::string>> image;
     std::vector<std::string> text_image;

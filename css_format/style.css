@@ -144,6 +144,7 @@ html, body {
   z-index: -1;
   font-weight: bold;
   font-size: 450%;
+  margin-top: 100px;
 }
 
 .image-container {
@@ -324,6 +325,13 @@ html, body {
 }
 
 @media (max-width: 991.98px) {
+  .all-title-text {
+    position: absolute;
+    z-index: -1;
+    font-weight: bold;
+    font-size: 450%;
+    margin-top: 200px;
+  }
   .top_title {
     height: 165px;
     padding-left: 5px;
@@ -369,8 +377,14 @@ html, body {
   .arrows-container {
     margin: -180px auto;
   }
+  .single-block {
+    margin-top: 200px;
+  }
   .single-block + .single-block {
     margin-top: 600px;
+  }
+  .social-photo-block {
+    margin-top: 150px;
   }
   .arrow-button {
     font-size: 180px;

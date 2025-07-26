@@ -13,6 +13,14 @@ public:
 private:
     Wt::WContainerWidget *background;
     Wt::WText *title_text;
+    Wt::WContainerWidget *top_title;
+    Wt::WImage *logo;
+    Wt::WPushButton *menuToggle;
+    Wt::WContainerWidget *bContainers;
+    Wt::WPushButton *bAboutUs;
+    Wt::WPushButton *bOurBreeders;
+    Wt::WPushButton *bCats;
+    Wt::WPushButton *contact_info;
 };
 
 #endif
