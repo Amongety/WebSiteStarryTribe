@@ -21,6 +21,15 @@ private:
     Wt::WPushButton *bOurBreeders;
     Wt::WPushButton *bCats;
     Wt::WPushButton *contact_info;
+    Wt::WContainerWidget *linkContainer1;
+    Wt::WContainerWidget *textDRX1;
+    Wt::WImage *imageDRX1;
+    Wt::WContainerWidget *linkContainer2;
+    Wt::WContainerWidget *textDRX2;
+    Wt::WImage *imageDRX2;
+    Wt::WContainerWidget *linkContainer3;
+    Wt::WContainerWidget *textDRX3;
+    Wt::WImage *imageDRX3;
     // Wt::WContainerWidget *lower_title;
 };
 

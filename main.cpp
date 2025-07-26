@@ -37,6 +37,8 @@ void MainApplication::handleInternalPathChange() {
       root()->clear();
       root()->addNew<FirstWidget>();
   }
+  
+  doJavaScript("window.scrollTo(0, 0);");
 }
 
 int main(int argc, char **argv)
