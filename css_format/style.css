@@ -39,6 +39,7 @@ html, body {
   object-fit: contain;
   transition: height 0.3s ease;
   z-index: 10;
+  cursor: pointer;
 }
 
 .menu-toggle {
