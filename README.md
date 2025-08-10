@@ -1,60 +1,15 @@
-***How to launch a website***
+***Project assembly and launch***
 
-1. Move to the home directory of the current user
-```Bash
-cd ~
+1. To assemble and launch a web server, you need to:
+```bash
+make all
 ```
-2. Copy this repository
-```Bash
-git clone https://github.com/Amongety/WebSiteStarryTribe.git
+1.1. Installing the necessary tools for assembly:
+```bash
+make sysrep
 ```
-3. Install the Boost library
 
-3.1. Download the *.tar.gz archive
-```
-https://www.boost.org/releases/latest/
-```
-3.2. Unzip
-```Bash
-tar -xzf boost_x_xx_x.tar.gz
-```
-3.3. Go to the desired folder
-```Bash
-cd boost_x_xx_x/
-```
-4. Install the Wt library
-```Bash
-git clone https://github.com/emweb/wt.git
-```
-4.1. Create a build directory
-```Bash
-cd wt-x.x.x
-mkdir build
-cd build
-```
-4.2. Configure the library
-```Bash
-cmake ../
-```
-4.3. Build the library
-```Bash
-make
-```
-4.4. Install the library
-```Bash
-sudo make install
-```
-5. Server startup
-
-5.1. Create a make file
-```Bash
-cmake CMakeLists.txt
-```
-5.2. Compile
-```Bash
-make
-```
-5.3. Starting the server
-```Bash
-./main --docroot . --resources /usr/share/Wt/resources --http-address 0.0.0.0 --http-port 8080
+1.2. Removing all dependencies:
+```bash
+make distclean
 ```
