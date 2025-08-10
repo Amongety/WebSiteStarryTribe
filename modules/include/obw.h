@@ -1,9 +1,9 @@
 #ifndef __OBW_H__
 #define __OBW_H__ 1
 
-#include <Wt/WApplication.h>
-#include <Wt/WContainerWidget.h>
-#include <Wt/WPushButton.h>
+#include "../../local/wt/include/Wt/WApplication.h"
+#include "../../local/wt/include/Wt/WContainerWidget.h"
+#include "../../local/wt/include/Wt/WPushButton.h"
 
 class BreedersWidget : public Wt::WContainerWidget
 {
