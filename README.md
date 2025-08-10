@@ -44,3 +44,17 @@ make
 ```Bash
 sudo make install
 ```
+5. Server startup
+
+5.1. Create a make file
+```Bash
+cmake CMakeLists.txt
+```
+5.2. Compile
+```Bash
+make
+```
+5.3. Starting the server
+```Bash
+./main --docroot . --resources /usr/share/Wt/resources --http-address 0.0.0.0 --http-port 8080
+```
