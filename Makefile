@@ -47,7 +47,7 @@ wt-4.12.0/build: wt-4.12.0
 		cd wt-4.12.0; \
 		mkdir build; \
 		cd build; \
-		cmake ../ -DBOOST_ROOT=$(PWD)/local/boost_1_88_0 -DBoost_LIBRARY_DIRS=$(PWD)/local/boost_1_88_0/lib -DCMAKE_INSTALL_PREFIX=$(PWD)/local/wt; \
+		cmake ../ -DBOOST_ROOT=$(PWD)/local/boost -DBoost_LIBRARY_DIRS=$(PWD)/local/boost/lib -DCMAKE_INSTALL_PREFIX=$(PWD)/local/wt; \
 	fi
 
 local/wt/.done: wt-4.12.0/build
@@ -62,32 +62,32 @@ local/wt/.done: wt-4.12.0/build
 wt: local/wt/.done boost
 
 modules/auw.o: modules/auw.cpp wt
-	g++ -c -o modules/auw.o modules/auw.cpp
+	g++ -I$(PWD)/local/wt/include -c -o modules/auw.o modules/auw.cpp
 
 modules/ciw.o: modules/ciw.cpp wt
-	g++ -c -o modules/ciw.o modules/ciw.cpp
+	g++ -I$(PWD)/local/wt/include -c -o modules/ciw.o modules/ciw.cpp
 
 modules/cw.o: modules/cw.cpp wt
-	g++ -c -o modules/cw.o modules/cw.cpp
+	g++ -I$(PWD)/local/wt/include -c -o modules/cw.o modules/cw.cpp
 
 modules/obw.o: modules/obw.cpp wt
-	g++ -c -o modules/obw.o modules/obw.cpp
+	g++ -I$(PWD)/local/wt/include -c -o modules/obw.o modules/obw.cpp
 
 modules/toc.o: modules/toc.cpp wt
-	g++ -c -o modules/toc.o modules/toc.cpp
+	g++ -I$(PWD)/local/wt/include -c -o modules/toc.o modules/toc.cpp
 
 main.o: main.cpp wt
-	g++ -c -o main.o main.cpp
+	g++ -I$(PWD)/local/wt/include -c -o main.o main.cpp
 
 build: $(objects) wt
-	g++ -o main $(objects) $(PWD)/local/wt/lib/libwt.so $(PWD)/local/wt/lib/libwthttp.so -Wl,-rpath,$(PWD)/local/wt/lib
+	g++ -o main $(objects) $(PWD)/local/wt/lib/libwt.so $(PWD)/local/wt/lib/libwthttp.so -L$(PWD)/local/boost/lib -lboost_program_options -lboost_filesystem -lboost_system -lboost_thread -pthread
 
 run: build
 	sed -i 's|<debug-level>.*</debug-level>|<debug-level>all</debug-level>|' $(PWD)/local/wt/etc/wt/wt_config.xml
-	./main --debug-level all --docroot . --resources $(PWD)/local/wt/share/Wt/resources --http-address 0.0.0.0 --http-port 8080
+	LD_LIBRARY_PATH=$(PWD)/local/boost/lib:$(PWD)/local/wt/lib:$$LD_LIBRARY_PATH ./main --debug-level all --docroot . --resources $(PWD)/local/wt/share/Wt/resources --http-address 0.0.0.0 --http-port 8080
 
 clean:
-	rm -f build *.o modules/*.o
+	rm -f build *.o modules/*.o main
 
 distclean: clean
 	rm -r local
