@@ -1,9 +1,9 @@
 #ifndef __CIW_H__
 #define __CIW_H__ 1
 
-#include "../../local/wt/include/Wt/WApplication.h"
-#include "../../local/wt/include/Wt/WContainerWidget.h"
-#include "../../local/wt/include/Wt/WPushButton.h"
+#include <Wt/WApplication.h>
+#include <Wt/WContainerWidget.h>
+#include <Wt/WPushButton.h>
 
 class ContactWidget : public Wt::WContainerWidget
 {

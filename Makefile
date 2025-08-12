@@ -1,5 +1,14 @@
 objects = main.o modules/auw.o modules/ciw.o modules/cw.o modules/obw.o modules/toc.o
 
+BOOST_INC := -I$(PWD)/local/boost/include
+BOOST_LIB := -L$(PWD)/local/boost/lib -lboost_program_options -lboost_filesystem -lboost_system -lboost_thread -pthread
+
+WT_INC := -I$(PWD)/local/wt/include
+WT_LIB := -L$(PWD)/local/wt/lib -lwt -lwthttp
+
+CFLAGS  = $(BOOST_INC) $(WT_INC)
+LDFLAGS = $(WT_LIB) $(BOOST_LIB)
+
 .PHONY: all boost wt build run clean distclean sysrep
 
 all: boost wt build run
@@ -62,25 +71,25 @@ local/wt/.done: wt-4.12.0/build
 wt: local/wt/.done boost
 
 modules/auw.o: modules/auw.cpp wt
-	g++ -I$(PWD)/local/wt/include -c -o modules/auw.o modules/auw.cpp
+	g++ $(CFLAGS) -c -o modules/auw.o modules/auw.cpp
 
 modules/ciw.o: modules/ciw.cpp wt
-	g++ -I$(PWD)/local/wt/include -c -o modules/ciw.o modules/ciw.cpp
+	g++ $(CFLAGS) -c -o modules/ciw.o modules/ciw.cpp
 
 modules/cw.o: modules/cw.cpp wt
-	g++ -I$(PWD)/local/wt/include -c -o modules/cw.o modules/cw.cpp
+	g++ $(CFLAGS) -c -o modules/cw.o modules/cw.cpp
 
 modules/obw.o: modules/obw.cpp wt
-	g++ -I$(PWD)/local/wt/include -c -o modules/obw.o modules/obw.cpp
+	g++ $(CFLAGS) -c -o modules/obw.o modules/obw.cpp
 
 modules/toc.o: modules/toc.cpp wt
-	g++ -I$(PWD)/local/wt/include -c -o modules/toc.o modules/toc.cpp
+	g++ $(CFLAGS) -c -o modules/toc.o modules/toc.cpp
 
 main.o: main.cpp wt
-	g++ -I$(PWD)/local/wt/include -c -o main.o main.cpp
+	g++ $(CFLAGS) -c -o main.o main.cpp
 
 build: $(objects) wt
-	g++ -o main $(objects) $(PWD)/local/wt/lib/libwt.so $(PWD)/local/wt/lib/libwthttp.so -L$(PWD)/local/boost/lib -lboost_program_options -lboost_filesystem -lboost_system -lboost_thread -pthread
+	g++ -o main $(objects) $(LDFLAGS)
 
 run: build
 	sed -i 's|<debug-level>.*</debug-level>|<debug-level>all</debug-level>|' $(PWD)/local/wt/etc/wt/wt_config.xml
